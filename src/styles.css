@@ -9,16 +9,15 @@ html {
     line-height: 1.4em;
 }
 body {
-    background-color: #FDEDF4 ;
     min-height: 80vh;
     padding: 2rem 0;
 }
 a {
-    color: #309CD1;
+    color: #001f2e;
     transition: color .3s ease-out;
 }
 a:hover {
-    color: #3ABEFF;
+    color: #003955;
 }
 h1 {
     font-size: 3rem;

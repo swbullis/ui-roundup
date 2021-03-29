@@ -40,3 +40,7 @@ To add a bookmark you send a request with a query parameter structured like this
 `http://siteurl.com/.netlify/functions/bookmarks?url=http://google.com&apiKey=your-api-key`
 
 The article will show you the steps to create the iOS shortcut, but you could also make a small JavaScript bookmarklet to do the same thing.
+
+## Fauna DB
+* Setup links collection
+* Setup all_links index
