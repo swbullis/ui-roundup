@@ -1,15 +1,15 @@
 const rp = require('request-promise');
 const cheerio = require('cheerio');
 var faunadb = require('faunadb'),
-    q = faunadb.query;
+  q = faunadb.query;
 
 var adminClient = new faunadb.Client({
-    secret: process.env.FAUNADB_SERVER_SECRET
+  secret: process.env.FAUNADB_SERVER_SECRET
 });
 
 
-const getDetails = async function(url) {
-  const data = rp(url).then(function(htmlString) {
+const getDetails = async function (url) {
+  const data = rp(url).then(function (htmlString) {
     const $ = cheerio.load(htmlString);
     const title = $('head > title').text();
     const description = $('meta[name="description"]').attr('content');
@@ -17,9 +17,9 @@ const getDetails = async function(url) {
     const twitterImage = $('meta[property="twitter:image"]').attr('content');
     const msImage = $('meta[name="msapplication-TileImage"]').attr('content');
     const image = ogImage || twitterImage || msImage || "";
-    
+
     return {
-      created: new Date().toString(),  
+      created: new Date().toString(),
       image,
       pageTitle: title,
       description: description
@@ -28,7 +28,7 @@ const getDetails = async function(url) {
   return data
 }
 
-const saveBookmark = async function(details) {
+const saveBookmark = async function (details) {
   const data = {
     data: details
   };
@@ -41,7 +41,7 @@ const saveBookmark = async function(details) {
       }
     }).catch((error) => {
       /* Error! return the error with statusCode 400 */
-      return  {
+      return {
         statusCode: 400,
         body: JSON.stringify(error)
       }

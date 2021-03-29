@@ -1,7 +1,10 @@
 # Local Netlify folder
 .netlify
 
+#Standard Items
 .env
 node_modules
+
+#Build Locations
 functions
 app
