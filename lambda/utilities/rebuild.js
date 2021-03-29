@@ -1,9 +1,10 @@
+require('dotenv').config()
 const rp = require('request-promise');
 
 const rebuildSite = async function() {
     var options = {
         method: 'POST',
-        uri: 'https://api.netlify.com/build_hooks/5d7fa6175504dfd43377688c',
+        uri: process.env.NETLIFY_REBUILD_HOOK,
         body: {},
         json: true      
       };
