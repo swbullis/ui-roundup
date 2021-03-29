@@ -22,7 +22,8 @@ If you want this for your own, there are a few things you'll need to do, first, 
 ## Installation and local work
 
 1. `npm install`
-2. `netlify dev`
+2. `ntl link`
+3. `ntl dev`
 
 Seriously, that should be all it takes
 

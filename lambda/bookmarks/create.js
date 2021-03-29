@@ -12,10 +12,17 @@ const getDetails = async function (url) {
   const data = rp(url).then(function (htmlString) {
     const $ = cheerio.load(htmlString);
     const title = $('head > title').text();
-    const description = $('meta[name="description"]').attr('content');
-    const ogImage = $('meta[property="og:image"]').attr('content');
-    const twitterImage = $('meta[property="twitter:image"]').attr('content');
-    const msImage = $('meta[name="msapplication-TileImage"]').attr('content');
+    const prependDomain = (str)=>{
+      if (str && str.length && str[0] == '/'){
+        return `${url.trim()}${str.trim()}`;
+      }
+      return str;
+    }
+
+    const description = prependDomain($('meta[name="description"]').attr('content'));
+    const ogImage = prependDomain($('meta[property="og:image"]').attr('content'));
+    const twitterImage = prependDomain($('meta[property="twitter:image"]').attr('content'));
+    const msImage = prependDomain($('meta[name="msapplication-TileImage"]').attr('content'));
     const image = ogImage || twitterImage || msImage || "";
 
     return {
