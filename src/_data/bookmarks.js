@@ -30,6 +30,7 @@ function getBookmarks() {
 function mapBookmarks(data) {
     if(!data){
         console.error('Did you connect the database and create the `links` collection?')
+        return [];
     }
     return data.map(bookmark => {
         const dateTime = new Date(bookmark.ts / 1000);
