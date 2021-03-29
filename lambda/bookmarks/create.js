@@ -13,7 +13,11 @@ const getDetails = async function(url) {
     const $ = cheerio.load(htmlString);
     const title = $('head > title').text();
     const description = $('meta[name="description"]').attr('content');
-    const image = $('meta[property="og:image"]').attr('content') || "";
+    const ogImage = $('meta[property="og:image"]').attr('content');
+    const twitterImage = $('meta[property="twitter:image"]').attr('content');
+    const msImage = $('meta[name="msapplication-TileImage"]').attr('content');
+    const image = ogImage || twitterImage || msImage || "";
+    
     return {
       created: new Date().toString(),  
       image,
