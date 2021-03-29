@@ -41,6 +41,9 @@ h2 {
     box-shadow: 0 0 2px #999;
     padding: 1rem 1.5rem;
 }
+.bookmarkImage {
+    max-width: 100%;
+}
 .bookmarks {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
