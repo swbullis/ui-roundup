@@ -33,7 +33,14 @@ pagination:
     {% for link in pagination.items %}
         {% if link.url and link.pageTitle %}
         <li>
-            <h2><a href="{{ link.url }}">{{ link.pageTitle }}</a></h2>
+            <h2>
+                {% if link.url and link.pageTitle != "" %}
+                    <a href="{{ link.url }}">{{ link.pageTitle }}</a>
+                {% else %}
+                    <a href="{{ link.url }}">{{ link.url }}</a>
+                {% endif %}
+            </h2>
+
             Saved on {{ link.created | date: "%b %d, %Y"  }}
             {% if link.image and link.image != "" %}
             <div>
@@ -44,7 +51,9 @@ pagination:
                 <p>{{ link.description }}</p> 
             {% endif %}
         </li>
+
         {% endif %}
+
     {% endfor %}
     </ul>
 
