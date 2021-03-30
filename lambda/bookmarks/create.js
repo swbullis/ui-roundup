@@ -14,7 +14,8 @@ const getDetails = async function (url) {
     const title = $('head > title').text();
     const prependDomain = (str)=>{
       if (str && str.length && str[0] == '/'){
-        return `${url.trim()}${str.trim()}`;
+        const urlNoSlash = url.endsWith('/') ? url.slice(0, -1) : url;
+        return `${urlNoSlash.trim()}${str.trim()}`;
       }
       return str;
     }
