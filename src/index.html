@@ -35,9 +35,9 @@ pagination:
         <li>
             <h2>
                 {% if link.url and link.pageTitle != "" %}
-                    <a href="{{ link.url }}">{{ link.pageTitle }}</a>
+                    <a href="{{ link.url }}" target="_blank">{{ link.pageTitle }}</a>
                 {% else %}
-                    <a href="{{ link.url }}">{{ link.url }}</a>
+                    <a href="{{ link.url }}" target="_blank">{{ link.url }}</a>
                 {% endif %}
             </h2>
 
