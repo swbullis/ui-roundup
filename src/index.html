@@ -35,7 +35,7 @@ pagination:
         <li>
             <h2><a href="{{ link.url }}">{{ link.pageTitle }}</a></h2>
             Saved on {{ link.created | date: "%b %d, %Y"  }}
-            {% if link.image  %}
+            {% if link.image and link.image != "" %}
             <div>
                 <img class="bookmarkImage" src="{{ link.image }}" alt="{{ link.pageTitle}}">
             </div>
